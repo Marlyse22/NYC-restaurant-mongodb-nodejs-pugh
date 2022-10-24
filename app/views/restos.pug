@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+  <h1>Recherchez des restos</h1>
+
+  <p>
+    <b>Ici on cherche des restos de NewYork </b>
+  </p>
+
+    form(action="/search_restaurant" method="GET")
+      p Entre votre recherche : 
+      input(type="text" name="restaurant_name" placeholder="ici")
+
+      input(type="submit") 
+    ul
+      li.li #{restaurant.name } |  #{restaurant.cuisine }
+       

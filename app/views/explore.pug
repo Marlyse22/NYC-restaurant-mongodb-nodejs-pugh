@@ -1,0 +1,36 @@
+extends layout.pug
+
+block content
+  <h1>Explorer plus restos</h1>
+
+  <p>
+    <b>Ici on explore plus de restos par quartier et par cuisine NewYork </b>
+  </p>
+
+    form(action="/search_restaurantby" method="GET")
+      p choisir le quartier
+    
+      select(name="restaurant_borough")
+        each borough in boroughs
+          option(value=borough) #{borough}
+
+      p choisir le type de cuisine
+      select(name="restaurant_cuisine") 
+        each cuisine in cuisines
+          option(value=cuisine) #{cuisine}
+
+      input(type="submit") 
+      p la liste des restaurants par quartier et par cuisine
+      table
+        thead
+          tr
+          
+            th= "nom"
+            th= "cuisine"
+            th= "addresse"
+        tbody
+          each resto in restos
+            tr
+              td= resto.name 
+              td= resto.cuisine 
+              td= resto.address.street , resto.address.zipcode

@@ -1,0 +1,17 @@
+db.restaurants.aggregate( [ varUnwind, varGroup4, varSort2 ] );
+varSort2 = { $sort : { "best score" : -1 } }
+varGroup4 = { $group : {"_id" : "$borough", "score min" : {$min : "$grades.score"} } };
+varUnwind = {$unwind : "$grades"}
+db.restaurants.aggregate( [ varUnwind, varGroup4, varSort2 ] );
+varSort2 = { $sort : { "best score" : -1 } }
+varGroup4 = { $group : {"_id" : "$borough", "score eleve" : {$max : "$grades.score"} } };
+varUnwind = {$unwind : "$grades"}
+db.restaurants.aggregate( [ varUnwind, varGroup4, varSort2 ] );
+varSort2 = { $sort : { "moyenne" : -1 } }
+varGroup4 = { $group : {"_id" : "$borough", "moyenne" : {$avg : "$grades.score"} } };
+varUnwind = {$unwind : "$grades"}
+use ny
+db.restaurants.findOne()
+db.restaurants.findOne
+db.restaurant.findOne
+use ny
